@@ -2,8 +2,6 @@
 
 邮箱验证码中继服务器，负责连接邮箱、提取验证码并通过 WebSocket 推送给客户端。
 
-使用 deepseek-v4-pro + claude code 开发
-
 **版本**: V1.0.0_20260531_Alpha
 
 ## 功能
