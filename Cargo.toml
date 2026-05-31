@@ -1,0 +1,33 @@
+[package]
+name = "email-server"
+version = "1.0.0-alpha.20260531"
+edition = "2021"
+description = "Email verification code relay server"
+
+[profile.release]
+opt-level = "s"
+lto = true
+strip = true
+codegen-units = 1
+
+[dependencies]
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "net", "time", "sync", "io-util", "signal"] }
+tokio-tungstenite = { version = "0.24", features = ["native-tls"] }
+futures-util = "0.3"
+async-imap = "0.9"
+async-native-tls = "0.5"
+regex = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+serde_yaml = "0.9"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+reqwest = { version = "0.12", features = ["json"], optional = true }
+chrono = { version = "0.4", features = ["serde"] }
+mailparse = "0.14"
+tokio-util = { version = "0.7", features = ["compat"] }
+anyhow = "1"
+
+[features]
+default = ["llm"]
+llm = ["reqwest"]

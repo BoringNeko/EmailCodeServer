@@ -1,0 +1,10 @@
+services:
+  email-server:
+    build: .
+    image: email-server:latest
+    container_name: email-server
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./config.yaml:/etc/emailserver/config.yaml:ro
+    restart: unless-stopped

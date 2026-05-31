@@ -1,0 +1,43 @@
+bind: "0.0.0.0:8080"
+api_keys:
+  - "your-secret-api-key-here"
+
+extraction:
+  patterns:
+    - '\b\d{6}\b'
+    - '\b\d{4}-\d{4}\b'
+    - '\b\d{8}\b'
+  llm_fallback:
+    enabled: false
+    provider: "openai"
+    api_key: ""
+    model: "gpt-4.1-mini"
+    base_url: "https://api.openai.com/v1"
+
+accounts:
+  - name: "gmail"
+    protocol: "imap"
+    host: "imap.gmail.com"
+    port: 993
+    tls: true
+    email: "your-email@gmail.com"
+    password: "your-app-password"
+    idle_timeout_minutes: 29
+
+  - name: "outlook"
+    protocol: "imap"
+    host: "outlook.office365.com"
+    port: 993
+    tls: true
+    email: "your-email@outlook.com"
+    password: "your-app-password"
+    idle_timeout_minutes: 29
+
+  # - name: "legacy-pop3"
+  #   protocol: "pop3"
+  #   host: "pop.example.com"
+  #   port: 995
+  #   tls: true
+  #   email: "user@example.com"
+  #   password: "password"
+  #   poll_interval_secs: 60
